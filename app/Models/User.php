@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Room;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -9,6 +10,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Contactperson;
 
 class User extends Authenticatable
 {
@@ -28,7 +30,14 @@ class User extends Authenticatable
         'email',
         'password',
     ];
-
+    public function room()
+    {
+        return $this->belongsTo(Room::class);
+    }
+    public function contactperson()
+    {
+        return $this->belongsTo(Contactperson::class);
+    }
     /**
      * The attributes that should be hidden for arrays.
      *
