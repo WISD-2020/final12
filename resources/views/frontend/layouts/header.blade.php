@@ -1,6 +1,24 @@
 <!-- Jumbotron Header -->
-<header class="jumbotron my-4">
-    <h1 class="display-3">A Warm Welcome!</h1>
-    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
-    <a href="#" class="btn btn-primary btn-lg">Call to action!</a>
+
+<link rel="stylesheet" href="{{URL::asset('css/slider-img.css')}}">
+<header class="">
+
+    <div class="slider_container">
+        <div>
+            <img src="img/Industrial-style.jpg" alt="pure css3 slider" width="1110px" height="468px">
+            <b><span class="info">工業風房型</span></b>
+        </div>
+        <div>
+            <img src="img/Nordic-style.jpg" alt="pure css3 slider" width="1110px" height="468px">
+            <b><span class="info">北歐風房型</span></b>
+        </div>
+        <div>
+            <img src="img/Modern-style.jpg" alt="pure css3 slider" width="1110px" height="468px" >
+            <b><span class="info">現代風房型</span></b>
+        </div>
+        <div>
+            <img src="img/Simple-style.jpg" alt="pure css3 slider" width="1110px" height="468px">
+            <b><span class="info">簡約風房型</span></b>
+        </div>
+    </div>
 </header>
