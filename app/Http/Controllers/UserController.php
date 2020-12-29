@@ -93,9 +93,11 @@ class UserController extends Controller
         }
 
     }
+
+    //判斷身分別後進行頁面跳轉
     public function home(Request $request )
     {
-        
+
         if (Auth::check() && auth()->user()->id_type) {
 
             return redirect('admin');
