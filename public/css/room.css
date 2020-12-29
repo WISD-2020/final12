@@ -1,0 +1,42 @@
+.wrap{
+    width: 1100px;
+    margin: auto;
+}
+.box{
+    display: flex;
+    align-items: center;
+    margin-bottom: 70px;
+    /* background-color: #ccc; */
+}
+.box .pic{
+    width: 55%;
+    flex-shrink: 0;
+}
+.box .pic img{
+    width: 100%;
+    vertical-align: middle;
+}
+.box .text{
+    width: 55%;
+    background-color: #ffaa88;
+    flex-shrink: 0;
+    padding: 50px 30px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+}
+.box > :first-child{
+    margin-right: -10%;
+}
+.box:nth-child(1) .text{
+    background-color: rgb(240, 174, 193);
+}
+.box:nth-child(2) .text{
+    background-color: rgb(26, 162, 160);
+}
+.box:nth-child(3) .text{
+    background-color:  rgb(61, 84, 147);
+}
+.box:nth-child(4) .text{
+    background-color: rgb(229, 132, 40);
+}

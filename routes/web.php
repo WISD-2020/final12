@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RoomController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,4 +22,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::get('/',function (){
    return view('frontend.index');
-})->name('home');
+});
+
+Route::get('room',[RoomController::class,'index'])->name('room.index');
