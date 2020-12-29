@@ -28,7 +28,7 @@ Route::get('room',[RoomController::class,'index'])->name('room.index');
 
 Route::get('/user/logout',[UserController::class,'logout'])->name('user.logout');
 
-
+Route::get('home',[UserController::class,'home'])->name('user.home');
 
 Route::get('admin',function (){
     return view('admin.layouts.master');

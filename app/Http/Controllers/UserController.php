@@ -93,4 +93,16 @@ class UserController extends Controller
         }
 
     }
+    public function home(Request $request )
+    {
+        
+        if (Auth::check() && auth()->user()->id_type) {
+
+            return redirect('admin');
+        }
+        else{
+            return redirect('/');
+        }
+
+    }
 }
