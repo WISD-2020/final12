@@ -22,12 +22,28 @@ class CreateNewUser implements CreatesNewUsers
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'room_id'=>['required','integer'],
+            'account'=>['required','string','max:20'],
+            'gender'=>['required','string'],
+            'phone'=>['required','string','max:20'],
+            'address'=>['required','string','max:50'],
+            'birthday'=>['required','date'],
+            'StartTime'=>['required','date'],
+            'EndTime'=>['required','date'],
             'password' => $this->passwordRules(),
         ])->validate();
 
         return User::create([
             'name' => $input['name'],
             'email' => $input['email'],
+            'room_id'=>$input['room_id'],
+            'account'=>$input['account'],
+            'gender'=>$input['gender'],
+            'phone'=>$input['phone'],
+            'address'=>$input['address'],
+            'birthday'=>$input['birthday'],
+            'StartTime'=>$input['StartTime'],
+            'EndTime'=>$input['EndTime'],
             'password' => Hash::make($input['password']),
         ]);
     }
