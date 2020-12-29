@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\RoomController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,13 +19,12 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('welcome',function (){
-    return view('welcome');
-})->name('welcome');
-
+/*首頁*/
 Route::get('/',function (){
    return view('frontend.index');
-})->name('home');
+})->name('home');;
+/*房型說明*/
+Route::get('room',[RoomController::class,'index'])->name('room.index');
 
 Route::get('/user/logout',[UserController::class,'logout'])->name('user.logout');
 
@@ -36,3 +35,4 @@ Route::get('admin',function (){
 })->name('admin.index');
 
 Route::get('admin/member',[UserController::class,'index'])->name('admin.member.index');
+
