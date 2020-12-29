@@ -29,6 +29,14 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'room_id',
+        'account',
+        'gender',
+        'phone',
+        'address',
+        'birthday',
+        'StartTime',
+        'EndTime',
     ];
     public function room()
     {
