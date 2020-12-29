@@ -26,9 +26,11 @@ Route::get('/',function (){
 /*房型說明*/
 Route::get('room',[RoomController::class,'index'])->name('room.index');
 
+
+
+
+
 Route::get('/user/logout',[UserController::class,'logout'])->name('user.logout');
-
-
 
 Route::get('admin',function (){
     return view('admin.layouts.master');
