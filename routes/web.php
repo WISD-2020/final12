@@ -33,4 +33,6 @@ Route::get('/user/logout',[UserController::class,'logout'])->name('user.logout')
 
 Route::get('admin',function (){
     return view('admin.layouts.master');
-})->name('admin');
+})->name('admin.index');
+
+Route::get('admin/member',[UserController::class,'index'])->name('admin.member.index');

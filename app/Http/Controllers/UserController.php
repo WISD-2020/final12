@@ -13,9 +13,10 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $users=User::where('id',$request->user()->id)->get();
+    return view('admin.members.index',['users'=>$users]);
     }
 
     /**
