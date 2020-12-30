@@ -63,11 +63,14 @@
                                     <td>{{$user->room_id}}</td>
                                     <td>{{$user->account}}</td>
                                     <td>
-                                        @if(($user->gender)===0)女
-                                        @elseif(($user->gender)===1)男
+                                        @if(($user->gender)==0)女
+                                        @elseif(($user->gender)==1)男
                                         @else null
                                         @endif
                                     </td>
+                                    <td>{{$user->email}}</td>
+                                    <td>{{$user->phone}}</td>
+                                    <td>{{$user->}}</td>
 
                                     <!-- 刪除按鈕 -->
                                     <td>

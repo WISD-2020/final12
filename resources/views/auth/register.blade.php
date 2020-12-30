@@ -29,8 +29,8 @@
                 <x-jet-input id="account" class="block mt-1 w-full" type="text" name="account" :value="old('account')" required/>
             </div>
             <div>
-                <x-jet-label for="id_type" value="{{ __('id_type') }}" />
-                <x-jet-input id="id_type" class="block mt-1 w-full" type="text" name="id_type" :value="old('id_type')" required/>
+                <x-jet-label for="id_number" value="{{ __('id_number') }}" />
+                <x-jet-input id="id_number" class="block mt-1 w-full" type="text" name="id_number" :value="old('id_number')" required/>
             </div>
 
             <div>
