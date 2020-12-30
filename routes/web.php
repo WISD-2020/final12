@@ -1,4 +1,8 @@
 <?php
+
+use App\Http\Controllers\CostController;
+use App\Http\Controllers\MailController;
+use App\Http\Controllers\RepairController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -26,13 +30,28 @@ Route::get('/',function (){
 /*房型說明*/
 Route::get('room',[RoomController::class,'index'])->name('room.index');
 
-
+/*身分別判斷*/
 Route::get('home',[UserController::class,'home'])->name('user.home');
-Route::get('tenant',function (){
+
+/*房客頁面*/
+Route::group(['middleware' => 'auth'],function (){
+    Route::get('tenant',function (){
+        return view('tenant.index');
+    })->name('tenant.index');
+
+    Route::get('cost',[CostController::class,'index'])->name('cost.index');
+    Route::get('mail',[MailController::class,'index'])->name('mail.index');
+    Route::get('repair',[RepairController::class,'index'])->name('repair.index');
+});
+
+
+/*Route::get('tenant',function (){
     return view('tenant.index');
-})->name('tenant.index');
+})->middleware('auth')->name('tenant.index');*/
 
 Route::get('/user/logout',[UserController::class,'logout'])->name('user.logout');
+
+
 
 Route::get('admin',function (){
     return view('admin.layouts.master');

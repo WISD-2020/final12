@@ -1,4 +1,4 @@
-@extends('frontend.layouts.master')
+@extends('tenant.layouts.master')
 <head>
     <link rel="stylesheet" href="{{URL::asset('css/room.css')}}">
 </head>

@@ -14,7 +14,7 @@ class CostController extends Controller
      */
     public function index()
     {
-        //
+        return view('tenant.cost');
     }
 
     /**

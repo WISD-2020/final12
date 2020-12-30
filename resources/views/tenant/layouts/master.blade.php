@@ -19,11 +19,11 @@
 
 <body>
 <div class="container">
-@include('frontend.layouts.header')
-@include('frontend.layouts.navbar')
+@include('tenant.layouts.header')
+@include('tenant.layouts.navbar')
 @yield('content')
 </div>
-@include('frontend.layouts.footer')
+@include('tenant.layouts.footer')
 
 
 <!-- Bootstrap core JavaScript -->
