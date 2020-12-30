@@ -31,6 +31,7 @@ class User extends Authenticatable
         'password',
         'room_id',
         'account',
+        'id_number',
         'gender',
         'phone',
         'address',

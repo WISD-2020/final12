@@ -1,5 +1,8 @@
 
+<?php
 
+    $contact=\App\Http\Controllers\UserController::contact();
+    ?>
 @extends('admin.layouts.master')
 
 @section('title', '會員管理')
@@ -70,9 +73,20 @@
                                     </td>
                                     <td>{{$user->email}}</td>
                                     <td>{{$user->phone}}</td>
-                                    <td>{{$user->}}</td>
+                                    <td>{{$user->id_number}}</td>
+                                    <td>{{$contact->first()->contact_name}}</td>
+                                    <td>{{$contact->first()->contact_phone}}</td>
+
 
                                     <!-- 刪除按鈕 -->
+                                    <td>
+                                        <form action="/admin/member/{{ $user->id }}" method="POST">
+                                            {{ csrf_field() }}
+                                            {{ method_field('DELETE') }}
+
+                                            <button type="submit" class="btn btn-danger">編輯</button>
+                                        </form>
+                                    </td>
                                     <td>
                                         <form action="/admin/member/{{ $user->id }}" method="POST">
                                             {{ csrf_field() }}
@@ -83,38 +97,6 @@
                                     </td>
                                 </tr>
                             @endforeach
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011/04/25</td>
-                                    <td>$320,800</td>
-                                    <td>2011/04/25</td>
-                                    <td>$320,800</td>
-                                    <td>$320,800</td>
-                                </tr>
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011/04/25</td>
-                                    <td>$320,800</td>
-                                    <td>2011/04/25</td>
-                                    <td>$320,800</td>
-                                    <td>$320,800</td>
-                                </tr><tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>123</td>
-                                    <td>2011/04/25</td>
-                                    <td>$320,800</td>
-                                    <td>2011/04/25</td>
-                                    <td>$320,800</td>
-                                    <td>$320,800</td>
-                                </tr>
 
                                 </tbody>
                             </table>

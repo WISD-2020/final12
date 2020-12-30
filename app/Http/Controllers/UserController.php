@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -35,6 +36,14 @@ class UserController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
+    static public function contact(){
+        $contact=DB::table('users')
+            ->join('contactpeople','users.contact_id','=','contactpeople.id')
+            ->where('users.id',auth()->user()->id)
+            ->select('contact_name','contact_phone')
+            ->get();
+        return $contact;
+    }
     public function store(Request $request)
     {
         //

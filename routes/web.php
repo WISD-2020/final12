@@ -32,7 +32,7 @@ Route::get('tenant',function (){
     return view('tenant.index');
 })->name('tenant.index');
 
-Route::get('/user/logout',[UserController::class,'logout'])->name('user.logout');
+Route::get('logout',[UserController::class,'logout'])->name('logout');
 
 
 
@@ -40,7 +40,7 @@ Route::get('/user/logout',[UserController::class,'logout'])->name('user.logout')
 Route::group(['middleware' => 'auth'], function () {
     Route::prefix('admin')->group(function () {
             Route::get('/',function (){
-                return view('admin.layouts.master');
+                return view('admin.index');
                 })->name('admin.index');
             Route::get('/member',[UserController::class,'index'])
                 ->name('admin.member.index');

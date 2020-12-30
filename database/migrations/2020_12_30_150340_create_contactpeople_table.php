@@ -16,10 +16,9 @@ class CreateContactpeopleTable extends Migration
         Schema::create('contactpeople', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('contact_name');
+            $table->string('contact_name');
             $table->string('contact_ship',20);
-            $table->dateTime('contact_phone');
-
+            $table->string('contact_phone');
         });
     }
 

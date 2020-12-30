@@ -22,7 +22,7 @@
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="#">個人資料</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{{route('user.logout')}}">登出</a>
+                <a class="dropdown-item" href="{{route('logout')}}">登出</a>
             </div>
         </li>
     </ul>
