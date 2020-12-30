@@ -28,6 +28,10 @@
                 <x-jet-label for="account" value="{{ __('account') }}" />
                 <x-jet-input id="account" class="block mt-1 w-full" type="text" name="account" :value="old('account')" required/>
             </div>
+            <div>
+                <x-jet-label for="id_type" value="{{ __('id_type') }}" />
+                <x-jet-input id="id_type" class="block mt-1 w-full" type="text" name="id_type" :value="old('id_type')" required/>
+            </div>
 
             <div>
                 <x-jet-label for="gender" value="{{ __('gender') }}" />
@@ -59,12 +63,12 @@
 
             <div>
                 <x-jet-label for="StartTime" value="{{ __('StartTime') }}" />
-                <x-jet-input id="StartTime" class="block mt-1 w-full" type="date" name="StartTime" :value="old('StartTime')" />
+                <x-jet-input id="StartTime" class="block mt-1 w-full" type="date" name="StartTime" :value="old('StartTime')" required/>
             </div>
 
             <div>
                 <x-jet-label for="EndTime" value="{{ __('EndTime') }}" />
-                <x-jet-input id="EndTime" class="block mt-1 w-full" type="date" name="EndTime" :value="old('EndTime')" />
+                <x-jet-input id="EndTime" class="block mt-1 w-full" type="date" name="EndTime" :value="old('EndTime')" required/>
             </div>
 
             <div class="mt-4">
