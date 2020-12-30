@@ -24,7 +24,9 @@ class CreateNewUser implements CreatesNewUsers
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'room_id'=>['required','integer'],
             'account'=>['required','string','max:20'],
+
             'id_number'=>['required','string','max:20'],
+
             'gender'=>['required','string'],
             'phone'=>['required','string','max:20'],
             'address'=>['required','string','max:50'],
