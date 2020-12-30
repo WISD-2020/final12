@@ -28,7 +28,9 @@ Route::get('room',[RoomController::class,'index'])->name('room.index');
 
 
 Route::get('home',[UserController::class,'home'])->name('user.home');
-
+Route::get('tenant',function (){
+    return view('tenant.index');
+})->name('tenant.index');
 
 Route::get('/user/logout',[UserController::class,'logout'])->name('user.logout');
 

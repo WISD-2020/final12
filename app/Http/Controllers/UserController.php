@@ -95,15 +95,18 @@ class UserController extends Controller
     }
 
     //判斷身分別後進行頁面跳轉
-    public function home(Request $request )
+    public function home()
     {
 
-        if (Auth::check() && auth()->user()->id_type) {
+        if (Auth::check() && auth()->user()->id_type==1) {
 
             return redirect('admin');
         }
+        elseif(Auth::check() && auth()->user()->id_type==0){
+            return redirect('tenant');
+        }
         else{
-            return redirect('/');
+            return redirect('login');
         }
 
     }
