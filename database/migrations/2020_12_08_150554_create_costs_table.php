@@ -19,7 +19,6 @@ class CreateCostsTable extends Migration
             $table->string('room_id',20);
            /*$table->foreign('room_id')->references('id')->on('users');*/
             $table->integer('waterbill');
-            $table->integer('electricitybill')->nullable()->comment('透過度數*5得出');
             $table->integer('consumption');
             $table->integer('public_e');
             $table->integer('rent');

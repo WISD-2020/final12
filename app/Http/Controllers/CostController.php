@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cost;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CostController extends Controller
@@ -14,7 +15,9 @@ class CostController extends Controller
      */
     public function index()
     {
-        //
+        $costs=Cost::where('id','>',"0")->get();
+
+        return view('admin.costs.index',['costs'=>$costs,]);
     }
 
     /**
@@ -55,9 +58,12 @@ class CostController extends Controller
      * @param  \App\Models\Cost  $cost
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cost $cost)
+    public function edit($id)
     {
-        //
+
+        $costs=Cost::find($id);
+
+        return view('admin.costs.edit',['costs'=>$costs]);
     }
 
     /**
@@ -67,9 +73,23 @@ class CostController extends Controller
      * @param  \App\Models\Cost  $cost
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cost $cost)
+    public function update(Request $request, $id)
     {
-        //
+        $cost=Cost::find($id);
+        $this->validate($request,	[
+            'room_id'	=>	'required|max:20',
+            'waterbill'	=>	'required|max:11',
+            'consumption' => 'required|max:11|',
+            'public_e' => 'required|max:11|',
+            'rent' =>'max:11|',
+            'w_status'=>'required|boolean',
+            'e_status'=>'required|boolean',
+            'r_status'=>'required|boolean',
+            'cost_month'=>'required|date',
+
+        ]);
+        $cost->update($request->all());
+        return redirect()->route('admin.cost.index');
     }
 
     /**

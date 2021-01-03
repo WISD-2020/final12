@@ -12,4 +12,15 @@ class Cost extends Model
     {
         return $this->belongsTo(Room::class);
     }
+    protected $fillable = [
+        'room_id',
+        'waterbill',
+        'consumption',
+        'public_e',
+        'rent',
+        'w_status',
+        'e_status',
+        'r_status',
+        'cost_month',
+    ];
 }
