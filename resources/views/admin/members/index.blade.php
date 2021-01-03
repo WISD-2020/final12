@@ -1,7 +1,7 @@
 
 <?php
 
-    $contact=\App\Http\Controllers\UserController::contact();
+
     ?>
 @extends('admin.layouts.master')
 
@@ -11,11 +11,11 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid">
-                <h1 class="mt-4">會員管理</h1>
-                <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item active">Dashboard</li>
-                    <li class="breadcrumb-item active">Dashboard</li>
-                </ol>
+                <h1 class="mt-4">會員管理    <a href="{{ route('admin.member.create') }}" class="btn btn-success">新增資料</a></h1>
+{{--                <ol class="breadcrumb mb-4">--}}
+{{--                    <li class="breadcrumb-item active">Dashboard</li>--}}
+{{--                    <li class="breadcrumb-item active">Dashboard</li>--}}
+{{--                </ol>--}}
 
                 <div class="card mb-4">
                     <div class="card-header">
@@ -74,21 +74,19 @@
                                     <td>{{$user->email}}</td>
                                     <td>{{$user->phone}}</td>
                                     <td>{{$user->id_number}}</td>
-                                    <td>{{$contact->first()->contact_name}}</td>
-                                    <td>{{$contact->first()->contact_phone}}</td>
+                                    <td>{{$user->contact_name}}</td>
+                                    <td>{{$user->contact_phone}}</td>
 
 
+
+                                    <!-- 編輯按鈕 -->
+                                    <td>
+                                        <a href="{{ route('admin.member.edit', $user->id) }}" class="btn btn-primary">編輯</a>
+
+                                    </td>
                                     <!-- 刪除按鈕 -->
                                     <td>
-                                        <form action="/admin/member/{{ $user->id }}" method="POST">
-                                            {{ csrf_field() }}
-                                            {{ method_field('DELETE') }}
-
-                                            <button type="submit" class="btn btn-danger">編輯</button>
-                                        </form>
-                                    </td>
-                                    <td>
-                                        <form action="/admin/member/{{ $user->id }}" method="POST">
+                                        <form action="{{route('admin.member.update',$user->id)}}" method="POST">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
 

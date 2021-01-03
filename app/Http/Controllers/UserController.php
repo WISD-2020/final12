@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\Fortify\PasswordValidationRules;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
+    use PasswordValidationRules;
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +20,11 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $users=User::where('id',$request->user()->id)->get();
+        $users=DB::table('users')
+            ->leftjoin('contactpeople','users.contact_id','=','contactpeople.id')
+            ->select('users.id','name','room_id','account','gender','email','phone','id_number','contact_name','contact_phone')
+            ->get();
+
     return view('admin.members.index',['users'=>$users]);
     }
 
@@ -27,7 +35,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('auth.register');
     }
 
     /**
@@ -36,17 +44,33 @@ class UserController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    static public function contact(){
-        $contact=DB::table('users')
-            ->join('contactpeople','users.contact_id','=','contactpeople.id')
-            ->where('users.id',auth()->user()->id)
-            ->select('contact_name','contact_phone')
-            ->get();
-        return $contact;
-    }
+//    public function contact($id){
+//        $contacts=DB::table('users')
+//            ->join('contactpeople','users.contact_id','=','contactpeople.id')
+//            ->where('users.id',$id)
+//            ->select('contact_name','contact_phone')
+//            ->get();
+//
+//        return view('admin.member.index',$contacts);
+//    }
     public function store(Request $request)
     {
-        //
+        $this->validate($request,	[
+            'name'	=>	'required|min:3|max:20',
+            'email'	=>	'required|email|unique:users',
+            'room_id' => 'required|max:20',
+            'account' => 'required|max:20|unique:users',
+            'id_number' =>'required|min:10|max:10|unique:users',
+            'phone'=>'required|max:20',
+            'address'=>'required|max:50',
+            'birthday'=>'required|date',
+            'StartTime'=>'required|date',
+            'EndTime'=>'required|date',
+            'password'=>$this->passwordRules(),
+        ]);
+
+        User::create($request->all());
+        return redirect()->route('admin.member.index');
     }
 
     /**
@@ -68,7 +92,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user=User::find($id);
+
+        return view('admin.members.edit',['user'=>$user]);
     }
 
     /**
@@ -80,7 +106,23 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user=User::find($id);
+        $this->validate($request,	[
+            'name'	=>	'required|min:3|max:20',
+            'email'	=>	'required|email|unique:users',
+            'room_id' => 'required|max:20',
+            'account' => 'required|max:20|unique:users',
+            'id_number' =>'required|min:10|max:10|unique:users',
+            'phone'=>'required|max:20',
+            'address'=>'required|max:50',
+            'birthday'=>'required|date',
+            'StartTime'=>'required|date',
+            'EndTime'=>'required|date',
+            'password'=>$this->passwordRules(),
+        ]);
+        $user->update($request->all());
+        return redirect()->route('admin.member.index');
+
     }
 
     /**
@@ -91,7 +133,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user=User::find($id);
+
+        $user->delete();
+        return redirect()->route('admin.member.index');
     }
 
     public function logout(User $user)
