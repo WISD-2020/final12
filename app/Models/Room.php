@@ -11,6 +11,8 @@ use App\Models\Cost;
 
 class Room extends Model
 {
+    protected $primaryKey = 'id';
+    public $incrementing = false;
     public function costs()
     {
         return $this->hasMany(Cost::class);

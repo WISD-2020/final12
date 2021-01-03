@@ -24,7 +24,7 @@
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         會員管理
                     </a>
-                    <a class="nav-link" href="index.html">
+                    <a class="nav-link" href="{{route('admin.cost.index')}}">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         費用管理
                     </a>
