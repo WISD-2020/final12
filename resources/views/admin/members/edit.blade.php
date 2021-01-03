@@ -29,16 +29,13 @@
                         </ul>
                     </div><br />
             @endif
-            <!--錯誤提示--><div class="alert alert-danger alert-dismissable">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    <i class="fa fa-info-circle"></i>  <strong>警告！</strong> 請修正表單錯誤：
-                </div>
+
             </div>
         </div>
 
         <div class="row">
             <div class="col-lg-12">
-                <form action="{{ route('admin.member.update', $user->id ) }}" method="POST" role="form" ><
+                <form action="{{ route('admin.member.update', $user->id ) }}" method="POST" role="form" >
 
                     @csrf
                     @method('PATCH')

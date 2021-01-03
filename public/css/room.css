@@ -29,14 +29,14 @@
     margin-right: -10%;
 }
 .box:nth-child(1) .text{
-    background-color: rgb(240, 174, 193);
+    background-color: rgba(240, 174, 193,0.8);
 }
 .box:nth-child(2) .text{
-    background-color: rgb(26, 162, 160);
+    background-color: rgba(26, 162, 160,0.8);
 }
 .box:nth-child(3) .text{
-    background-color:  rgb(61, 84, 147);
+    background-color:  rgba(61, 84, 147,0.8);
 }
 .box:nth-child(4) .text{
-    background-color: rgb(229, 132, 40);
+    background-color: rgba(229, 132, 40,0.8);
 }

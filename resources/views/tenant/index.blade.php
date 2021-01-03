@@ -1,6 +1,6 @@
-@extends('frontend.layouts.master')
+@extends('tenant.layouts.master')
 
-@section('title','Home')
+@section('title','Tenanthome')
 
 @section('content')
   <div class="row text-center">

@@ -15,9 +15,21 @@ class CostController extends Controller
      */
     public function index()
     {
+
+
+
+        return view('tenant.cost');
+
+    }
+    public function admin_index()
+    {
+
         $costs=Cost::where('id','>',"0")->get();
 
         return view('admin.costs.index',['costs'=>$costs,]);
+
+
+
     }
 
     /**
