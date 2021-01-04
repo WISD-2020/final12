@@ -68,8 +68,21 @@ class UserController extends Controller
             'EndTime'=>'required|date',
             'password'=>$this->passwordRules(),
         ]);
+        User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'room_id'=>$request['room_id'],
+            'account'=>$request['account'],
+            'id_number'=>$request['id_number'],
+            'gender'=>$request['gender'],
+            'phone'=>$request['phone'],
+            'address'=>$request['address'],
+            'birthday'=>$request['birthday'],
+            'StartTime'=>$request['StartTime'],
+            'EndTime'=>$request['EndTime'],
+            'password' => Hash::make($request['password']),
+        ]);
 
-        User::create($request->all());
         return redirect()->route('admin.member.index');
     }
 
