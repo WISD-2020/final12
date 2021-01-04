@@ -56,7 +56,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::get('logout', [UserController::class, 'logout'])->name('logout');
 
-
+/**/
 Route::group(['middleware' => 'auth'], function () {
     Route::prefix('admin')->group(function () {
         Route::get('/', function () {

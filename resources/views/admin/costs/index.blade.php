@@ -60,7 +60,7 @@
                                         <td class="table-text">
                                             <div>{{ $cost->room_id }}</div>
                                         </td>
-                                        <td>{{Carbon\Carbon::parse($cost->cost_monthCarbon)->format('m')}}</td>
+                                        <td>{{Carbon\Carbon::parse($cost->cost_month)->format('m')}}</td>
                                         <td>{{$cost->waterbill}}</td>
 
                                         <td>{{(($cost->consumption)*5)+$cost->public_e}}</td>
