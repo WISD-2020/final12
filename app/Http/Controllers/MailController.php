@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Mail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MailController extends Controller
 {
@@ -14,7 +15,13 @@ class MailController extends Controller
      */
     public function index()
     {
-        return view('tenant.mail');
+        $mails=DB::table('mails')
+            ->where('mails.room_id','=',auth()->user()->room_id)
+            ->join('users','mails.room_id','=','users.room_id')
+            ->select('mails.room_id','category','ArrivalTime','statu','collection_time','name',)
+            ->get();
+
+        return view('tenant.mail',['mails'=>$mails]);
     }
 
     /**
