@@ -54,7 +54,7 @@
                                     </td>
                                     <td>
                                         @if(($mail->collection_time)==null)未領取
-                                        @else{{$mail->collection_time}}
+                                        @else{{Carbon\Carbon::parse($mail->collection_time)->format('Y/m/d')}}
                                         @endif
                                     </td>
                                 </tr>
