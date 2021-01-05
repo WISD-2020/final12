@@ -94,8 +94,14 @@ class UserController extends Controller
      */
     public function show()
     {
+        $shows=DB::table('users')
+            ->where('rooms.id','=',auth()->user()->room_id)
+            ->join('rooms','rooms.id','=','room_id')
+            ->select('name','room_id','account','gender','email','phone','address','birthday','StartTime','EndTime',
+                'room_price','room_type')
+            ->get();
 
-        return view('tenant.users_show');
+        return view('tenant.users_show',['shows'=>$shows]);
     }
 
     /**
