@@ -23,6 +23,7 @@
                                 <th>水費</th>
                                 <th>電費</th>
                                 <th>租金</th>
+                                <th>度數</th>
                                 <th>水費繳交</th>
                                 <th>電費繳交</th>
                                 <th>租金繳交</th>
@@ -36,6 +37,7 @@
                                 <th>水費</th>
                                 <th>電費</th>
                                 <th>租金</th>
+                                <th>度數</th>
                                 <th>水費繳交</th>
                                 <th>電費繳交</th>
                                 <th>租金繳交</th>
@@ -50,6 +52,7 @@
                                     <td>{{$cost->waterbill}}</td>
                                     <td>{{(($cost->consumption)*5)+$cost->public_e}}</td>
                                     <td>{{$cost->rent}}</td>
+                                    <td>{{$cost->consumption}}</td>
                                     <td>
                                         @if(($cost->w_status)==0)未繳費
                                         @elseif(($cost->w_status)==1)已繳費
