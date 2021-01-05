@@ -23,6 +23,9 @@
                     <a class="nav-link" href="{{route('mail.index')}}">信件包裹查詢</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{route('users_show.index')}}">房客資訊查看</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('logout') }}">房客登出</a>
                 </li>
             </ul>
