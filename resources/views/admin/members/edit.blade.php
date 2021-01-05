@@ -1,8 +1,7 @@
 @extends('admin.layouts.master')
 @section('title','修改會員資料')
 @section('content')
-    <div id="layoutSidenav_content">
-        <div class="container-fluid">
+
             <div class="card mb-4">
 <!-- Page Heading -->
     <div class="card uper">
@@ -71,6 +70,5 @@
         </div>
     </div>
         </div>
-    </div>
-</div>
+
 @endsection

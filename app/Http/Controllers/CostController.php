@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cost;
+use App\Models\Room;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -25,8 +26,8 @@ class CostController extends Controller
     {
 
         $costs=Cost::where('id','>',"0")->get();
-
-        return view('admin.costs.index',['costs'=>$costs,]);
+        $rooms=Room::where('id','<>',"null")->get();
+        return view('admin.costs.index',['costs'=>$costs,'rooms'=>$rooms]);
 
 
 
@@ -37,9 +38,12 @@ class CostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+
+        $room=Room::where('id','=',$request->id)->get();
+        return view('admin.costs.create',['room'=>$room]);
+
     }
 
     /**
@@ -50,7 +54,32 @@ class CostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $this->validate($request,	[
+            'room_id'	=>	'required|max:20',
+            'waterbill'	=>	'required|max:11',
+            'consumption' => 'required|max:11|',
+            'public_e' => 'required|max:11|',
+            'rent' =>'max:11|',
+            'w_status'=>'required|boolean',
+            'e_status'=>'required|boolean',
+            'r_status'=>'required|boolean',
+            'cost_month'=>'required|date',
+        ]);
+
+        Cost::create([
+            'room_id' => $request['room_id'],
+            'waterbill' => $request['waterbill'],
+            'consumption'=>$request['consumption'],
+            'public_e'=>$request['public_e'],
+            'rent'=>$request['rent'],
+            'w_status'=>$request['w_status'],
+            'e_status'=>$request['e_status'],
+            'r_status'=>$request['r_status'],
+            'cost_month'=>$request['cost_month'],
+        ]);
+        return redirect()->route('admin.cost.index');
+
     }
 
     /**
@@ -61,7 +90,7 @@ class CostController extends Controller
      */
     public function show(Cost $cost)
     {
-        //
+
     }
 
     /**
@@ -89,11 +118,10 @@ class CostController extends Controller
     {
         $cost=Cost::find($id);
         $this->validate($request,	[
-            'room_id'	=>	'required|max:20',
-            'waterbill'	=>	'required|max:11',
+
             'consumption' => 'required|max:11|',
             'public_e' => 'required|max:11|',
-            'rent' =>'max:11|',
+            
             'w_status'=>'required|boolean',
             'e_status'=>'required|boolean',
             'r_status'=>'required|boolean',
@@ -110,8 +138,11 @@ class CostController extends Controller
      * @param  \App\Models\Cost  $cost
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cost $cost)
+    public function destroy($id)
     {
-        //
+        $cost=Cost::find($id);
+
+        $cost->delete();
+        return redirect()->route('admin.cost.index');
     }
 }

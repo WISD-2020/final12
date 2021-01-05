@@ -65,6 +65,10 @@ Route::group(['middleware' => 'auth'], function () {
         /*費用管理*/
         Route::get('/cost', [CostController::class, 'admin_index'])
             ->name('admin.cost.index');
+        Route::post('/cost/create', [CostController::class, 'create'])
+            ->name('admin.cost.create');
+        Route::post('/cost/store', [CostController::class, 'store'])
+            ->name('admin.cost.store');
         Route::get('cost/{id}', [CostController::class, 'edit'])
             ->name('admin.cost.edit');
         Route::patch('cost/{id}/update', [CostController::class, 'update'])
