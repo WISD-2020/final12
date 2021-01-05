@@ -7,6 +7,7 @@
 @section('title', '費用管理')
 
 @section('content')
+<<<<<<< HEAD
 
 
     <h1 class="mt-4">費用管理 </h1>
@@ -111,7 +112,11 @@
 
                     </tbody>
                 </table>
+
+
             </div>
+        </div>
+    </div>
 
 
 

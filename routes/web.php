@@ -46,6 +46,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('cost', [CostController::class, 'index'])->name('cost.index');
     Route::get('mail', [MailController::class, 'index'])->name('mail.index');
     Route::get('repair', [RepairController::class, 'index'])->name('repair.index');
+    Route::get('users_show',[UserController::class,'show'])->name('users_show.index');
 });
 
 
@@ -56,7 +57,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::get('logout', [UserController::class, 'logout'])->name('logout');
 
-
+/**/
 Route::group(['middleware' => 'auth'], function () {
     Route::prefix('admin')->group(function () {
         Route::get('/', function () {
