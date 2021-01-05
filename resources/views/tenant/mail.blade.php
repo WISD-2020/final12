@@ -5,12 +5,12 @@
 @section('content')
     <main>
         <div class="container-fluid">
-            <h1 class="mt-4">費用查看</h1>
+            <h1 class="mt-4">信件包裹查看</h1>
 
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table mr-1"></i>
-                    費用列表
+                    信件包裹列表
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
