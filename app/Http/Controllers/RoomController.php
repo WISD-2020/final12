@@ -15,7 +15,7 @@ class RoomController extends Controller
      */
     public function index()
     {
-        if (Auth::check() && auth()->user()->id_type==0){
+        if (Auth::check()){
             return view('tenant.room');
         }
         else{
