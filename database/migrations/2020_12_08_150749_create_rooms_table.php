@@ -19,7 +19,6 @@ class CreateRoomsTable extends Migration
             $table->string('room_type',20);
             $table->string('room_address',50);
             $table->integer('room_price');
-            $table->string('room_photo');
             $table->timestamps();
         });
     }
