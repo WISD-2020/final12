@@ -14,7 +14,7 @@ class AddPaidToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('room_id')->nullable();
+            $table->string('room_id',20)->nullable();
             $table->string('account',20);
             $table->integer('contact_id')->nullable();
             $table->string('gender')->comment('0為女生，1為男生')->default('null');
