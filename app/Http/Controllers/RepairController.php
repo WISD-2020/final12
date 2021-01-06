@@ -105,7 +105,7 @@ class RepairController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id){
-        
+
 
 
     }
@@ -113,15 +113,10 @@ class RepairController extends Controller
     {
 
         $repair=Repair::find($id);
+
         $this->validate($request,	[
-
             'raintenance_staff' => 'max:20',
-
-
-
             'repairs_statu'=>'max:2',
-
-
         ]);
         $repair->update($request->all());
         return redirect()->route('admin.repairs.index');

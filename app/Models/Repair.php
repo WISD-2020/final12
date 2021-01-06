@@ -20,5 +20,6 @@ class Repair extends Model
         'repair_fess',
         'repair_date',
         'return_date',
+        'repairs_statu',
     ];
 }
