@@ -104,7 +104,6 @@ class MailController extends Controller
 
             'category' => 'required|max:11|',
             'statu' => 'required|boolean',
-
             'ArrivalTime'=>'required|date',
 
 
