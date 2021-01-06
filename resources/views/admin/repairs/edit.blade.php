@@ -28,8 +28,10 @@
                         @method('PATCH')
                         <div class="form-group">
                             <label for="id">修繕回報編號：</label>
-                            <input id="id" name="id" class="form-control" placeholder="{{$repairs->id}}"
+                            <input id="id" name="id" class="form-control"
                                    value="{{$repairs->id}}" disabled="disabled" >
+                            <input id="id" name="id" class="form-control"
+                                   value="{{$repairs->id}}" type="hidden">
                         </div>
                         <div class="form-group">
                             <label for="room_id">房間編號：</label>
@@ -49,7 +51,7 @@
                         <div class="form-group">
                             <label for="repair_date">維修日期：</label>
                             <input type="date" id="repair_date" name="repair_date" class="form-control"
-                                   value="{{$repairs->repair_date}}">
+                                   value="{{Carbon\Carbon::parse($repairs->repair_date)->format('Y-m-d')}}">
                         </div>
                         <div class="form-group">
                             <label for="repair_fess">維修費用：</label>
@@ -61,7 +63,7 @@
                             <select id="repairs_statu" name="repairs_statu">
                                 <option value="0" @if(($repairs->repairs_statu)==0) selected @endif>未修繕</option>
                                 <option value="1" @if(($repairs->repairs_statu)==1) selected @endif>修繕中</option>
-                                <option value="1" @if(($repairs->repairs_statu)==2) selected @endif>修繕完畢</option>
+                                <option value="2" @if(($repairs->repairs_statu)==2) selected @endif>修繕完畢</option>
                             </select>
                         </div>
 

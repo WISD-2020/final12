@@ -63,7 +63,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::get('logout', [UserController::class, 'logout'])->name('logout');
 
-/**/
+/*管理員*/
 Route::group(['middleware' => 'auth'], function () {
     Route::prefix('admin')->group(function () {
         Route::get('/', function () {
@@ -77,7 +77,7 @@ Route::group(['middleware' => 'auth'], function () {
             ->name('admin.repair.edit');
         Route::patch('/repair/{id}/update', [RepairController::class, 'admin_update'])
             ->name('admin.repair.update');
-        Route::get('/repair/{id}}', [RepairController::class, 'admin_destroy'])
+        Route::delete('/repair/{id}}', [RepairController::class, 'admin_destroy'])
             ->name('admin.repair.destroy');
 
         /*信件管理*/
@@ -91,7 +91,7 @@ Route::group(['middleware' => 'auth'], function () {
             ->name('admin.mail.edit');
         Route::patch('/mail/{id}/update', [MailController::class, 'update'])
             ->name('admin.mail.update');
-        Route::get('/mail/{id}}', [MailController::class, 'destroy'])
+        Route::delete('/mail/{id}}', [MailController::class, 'destroy'])
             ->name('admin.mail.destroy');
 
         /*費用管理*/

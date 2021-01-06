@@ -18,7 +18,7 @@
         <!-- /.row -->
 
 
-
+        @if($errors){{$errors}}@endif
         <div class="row">
             <div class="col-lg-12">
                 <form action="{{ route('admin.member.update', $user->id ) }}" method="POST" role="form" >
@@ -35,7 +35,7 @@
                     </div>
                     <div class="form-group">
                         <label for="room_id">房間編號：</label>
-                        <input type="number" id="room_id" name="room_id" class="form-control" placeholder="{{$user->room_id}}" value="{{$user->room_id}}">
+                        <input id="room_id" name="room_id" class="form-control" placeholder="{{$user->room_id}}" value="{{$user->room_id}}">
                     </div>
                     <div class="form-group">
                         <label for="account">帳號：</label>

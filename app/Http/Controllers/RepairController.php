@@ -105,6 +105,7 @@ class RepairController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id){
+
         $repair=Repair::find($id);
         $this->validate($request,	[
 
@@ -117,20 +118,16 @@ class RepairController extends Controller
         return redirect()->route('repair.index');
 
 
+
     }
     public function admin_update(Request $request, $id)
     {
 
         $repair=Repair::find($id);
+
         $this->validate($request,	[
-
             'raintenance_staff' => 'max:20',
-
-
-
             'repairs_statu'=>'max:2',
-
-
         ]);
         $repair->update($request->all());
         return redirect()->route('admin.repairs.index');
@@ -145,7 +142,7 @@ class RepairController extends Controller
     public function admin_destroy($id){
         $repair=Repair::find($id);
         $repair->delete();
-        return redirect()->route('admin.repair.index');
+        return redirect()->route('admin.repairs.index');
     }
     public function destroy($id)
     {

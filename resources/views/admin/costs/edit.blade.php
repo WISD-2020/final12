@@ -34,8 +34,8 @@
                         <div class="form-group">
                             <label for="cost_month">費用月份：</label>
                             <input id="cost_month" type="date" name="cost_month" class="form-control"
-                                   placeholder="{{Carbon\Carbon::parse($costs->cost_monthCarbon)->format('Y-m-d')}}"
-                                   value="{{Carbon\Carbon::parse($costs->cost_monthCarbon)->format('Y-m-d')}}">
+                                   placeholder="{{Carbon\Carbon::parse($costs->cost_month)->format('Y-m-d')}}"
+                                   value="{{Carbon\Carbon::parse($costs->cost_month)->format('Y-m-d')}}">
                         </div>
                         <div class="form-group">
                             <label for="waterbill">水費：</label>
