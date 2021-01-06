@@ -45,8 +45,14 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('cost', [CostController::class, 'index'])->name('cost.index');
     Route::get('mail', [MailController::class, 'index'])->name('mail.index');
-    Route::get('repair', [RepairController::class, 'index'])->name('repair.index');
     Route::get('users_show',[UserController::class,'show'])->name('users_show.index');
+    /*房客修繕回報*/
+    Route::get('repair', [RepairController::class, 'index'])->name('repair.index');
+    Route::get('repair/create',[RepairController::class,'create'])->name('repair.create');
+    Route::post('repair/store',[RepairController::class,'store'])->name('repair.store');
+    Route::get('repair/{id}/edit',[RepairController::class,'edit'])->name('repair.edit');
+    Route::patch('repair/{id}',[RepairController::class,'update'])->name('repair.update');
+    Route::delete('repair/{id}',[RepairController::class,'destroy'])->name('repair.destroy');
 });
 
 
