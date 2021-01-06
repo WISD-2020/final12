@@ -63,7 +63,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::get('logout', [UserController::class, 'logout'])->name('logout');
 
-/**/
+/*管理員*/
 Route::group(['middleware' => 'auth'], function () {
     Route::prefix('admin')->group(function () {
         Route::get('/', function () {
