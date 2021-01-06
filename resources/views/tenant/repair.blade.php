@@ -21,6 +21,7 @@
                         <th>房號</th>
                         <th>報修內容</th>
                         <th>報修日期</th>
+                        <th>報修狀態</th>
                         <th>編輯</th>
                         <th>刪除</th>
                     </tr>
@@ -30,6 +31,7 @@
                         <th>房號</th>
                         <th>報修內容</th>
                         <th>報修日期</th>
+                        <th>報修狀態</th>
                         <th>編輯</th>
                         <th>刪除</th>
                     </tr>
@@ -43,6 +45,11 @@
                             </td>
                             <td>{{$repair->repair_content}}</td>
                             <td>{{Carbon\Carbon::parse($repair->return_date)->format('Y/m/d')}}</td>
+                            <td>
+                                @if(($repair->repairs_statu==0))未修繕
+                                @elseif(($repair->repairs_statu==1))修繕中
+                                @elseif(($repair->repairs_statu==2))修繕完畢
+                                @endif
 
                             <!-- 編輯按鈕 -->
                             <td>

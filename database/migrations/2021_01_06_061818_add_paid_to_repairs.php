@@ -14,7 +14,7 @@ class AddPaidToRepairs extends Migration
     public function up()
     {
         Schema::table('repairs', function (Blueprint $table) {
-            $table->boolean('repairs_statu')->comment('0為未修繕,1為修繕中,2為修繕完畢');
+            $table->boolean('repairs_statu')->comment('0為未修繕,1為修繕中,2為修繕完畢')->nullable();
         });
     }
 

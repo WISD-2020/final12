@@ -19,7 +19,7 @@ class RepairController extends Controller
         $repairs=DB::table('repairs')
             ->where('repairs.room_id','=',auth()->user()->room_id)
             ->join('users','repairs.room_id','=','users.room_id')
-            ->select('repairs.room_id','repair_content','return_date','repairs.id','name',)
+            ->select('repairs.room_id','repair_content','return_date','repairs.id','repairs_statu','name',)
             ->get();
 
         return view('tenant.repair',['repairs'=>$repairs]);
@@ -63,7 +63,7 @@ class RepairController extends Controller
             'repair_content'=>$request->repair_content,
             'return_date'=>$request->return_date,
         ]);
-        return redirect('repair.index');
+        return redirect()->route('repair.index');
 
     }
 
@@ -92,7 +92,8 @@ class RepairController extends Controller
     public function edit($id)
     {
 
-        return view('tenant.repair.edit');
+        $repairs=Repair::find($id);
+        return view('tenant.repair.edit',['repairs'=>$repairs]);
 
     }
 
@@ -104,6 +105,8 @@ class RepairController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id){
+        
+
 
     }
     public function admin_update(Request $request, $id)
