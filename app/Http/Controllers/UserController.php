@@ -129,16 +129,15 @@ class UserController extends Controller
         $user=User::find($id);
         $this->validate($request,	[
             'name'	=>	'required|min:3|max:20',
-            'email'	=>	'required|email|unique:users',
-            'room_id' => 'required|max:20',
-            'account' => 'required|max:20|unique:users',
-            'id_number' =>'required|min:10|max:10|unique:users',
+            'email'	=>	'required|email|',
+
+            'id_number' =>'required|min:10|max:10|',
             'phone'=>'required|max:20',
             'address'=>'required|max:50',
-            'birthday'=>'required|date',
+
             'StartTime'=>'required|date',
             'EndTime'=>'required|date',
-            'password'=>$this->passwordRules(),
+
         ]);
         $user->update($request->all());
         return redirect()->route('admin.member.index');

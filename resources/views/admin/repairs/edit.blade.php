@@ -51,7 +51,7 @@
                         <div class="form-group">
                             <label for="repair_date">維修日期：</label>
                             <input type="date" id="repair_date" name="repair_date" class="form-control"
-                                   value="{{$repairs->repair_date}}">
+                                   value="{{Carbon\Carbon::parse($repairs->repair_date)->format('Y-m-d')}}">
                         </div>
                         <div class="form-group">
                             <label for="repair_fess">維修費用：</label>

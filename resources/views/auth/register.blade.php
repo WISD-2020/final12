@@ -21,7 +21,7 @@
 
             <div>
                 <x-jet-label for="room_id" value="{{ __('room_id') }}" />
-                <x-jet-input id="room_id" class="block mt-1 w-full" type="number" name="room_id" :value="old('room_id')" required/>
+                <x-jet-input id="room_id" class="block mt-1 w-full"  name="room_id" :value="old('room_id')" required/>
             </div>
 
             <div>
