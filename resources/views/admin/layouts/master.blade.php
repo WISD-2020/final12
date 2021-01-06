@@ -34,7 +34,7 @@
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         信件管理
                     </a>
-                    <a class="nav-link" href="index.html">
+                    <a class="nav-link" href="{{route('admin.repairs.index')}}">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         修繕回報管理
                     </a>

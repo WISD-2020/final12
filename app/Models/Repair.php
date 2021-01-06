@@ -13,4 +13,12 @@ class Repair extends Model
         return $this->belongsTo(Room::class);
     }
     use HasFactory;
+    protected $fillable = [
+        'room_id',
+        'raintenance_staff',
+        'repair_content',
+        'repair_fess',
+        'repair_date',
+        'return_date',
+    ];
 }

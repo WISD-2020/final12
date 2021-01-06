@@ -16,7 +16,12 @@ class RepairController extends Controller
     {
         return view('tenant.repair');
     }
+    public function admin_index()
+    {
+        $repairs=Repair::where('id','>',"0")->get();
 
+        return view('admin.repairs.index',['repairs'=>$repairs]);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -55,9 +60,11 @@ class RepairController extends Controller
      * @param  \App\Models\Repair  $repair
      * @return \Illuminate\Http\Response
      */
-    public function edit(Repair $repair)
+    public function edit($id)
     {
-        //
+        $repairs=Repair::find($id);
+
+        return view('admin.repairs.edit',['repairs'=>$repairs]);
     }
 
     /**
@@ -67,9 +74,22 @@ class RepairController extends Controller
      * @param  \App\Models\Repair  $repair
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Repair $repair)
+    public function update(Request $request, $id)
     {
-        //
+
+        $repair=Repair::find($id);
+        $this->validate($request,	[
+
+            'raintenance_staff' => 'max:20',
+
+
+
+            'repairs_statu'=>'max:2',
+
+
+        ]);
+        $repair->update($request->all());
+        return redirect()->route('admin.repairs.index');
     }
 
     /**
@@ -78,8 +98,11 @@ class RepairController extends Controller
      * @param  \App\Models\Repair  $repair
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Repair $repair)
+    public function destroy($id)
     {
-        //
+        $repair=Repair::find($id);
+
+        $repair->delete();
+        return redirect()->route('admin.repair.index');
     }
 }

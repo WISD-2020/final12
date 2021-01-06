@@ -64,6 +64,20 @@ Route::group(['middleware' => 'auth'], function () {
             return view('admin.index');
         })->name('admin.index');
 
+        /*修繕回報管理*/
+        Route::get('/repairs', [RepairController::class, 'admin_index'])
+            ->name('admin.repairs.index');
+        Route::post('/repair/create', [RepairController::class, 'create'])
+            ->name('admin.repair.create');
+        Route::post('/repair/store', [RepairController::class, 'store'])
+            ->name('admin.repair.store');
+        Route::get('/repair/{id}', [RepairController::class, 'edit'])
+            ->name('admin.repair.edit');
+        Route::patch('/repair/{id}/update', [RepairController::class, 'update'])
+            ->name('admin.repair.update');
+        Route::get('/repair/{id}}', [RepairController::class, 'destroy'])
+            ->name('admin.repair.destroy');
+
         /*信件管理*/
         Route::get('/mails', [MailController::class, 'admin_index'])
             ->name('admin.mails.index');
