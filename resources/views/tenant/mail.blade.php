@@ -44,11 +44,12 @@
                                     <td>
                                         @if(($mail->category)==0)信件
                                         @elseif(($mail->category)==1)包裹
+                                        @elseif(($mail->category)==2)信件及包裹
                                         @endif
                                     </td>
                                     <td>{{$mail->ArrivalTime}}</td>
                                     <td>
-                                        @if(($mail->statu)==0)已通知
+                                        @if(($mail->statu)==0)未領取
                                         @elseif(($mail->statu)==1)已領取
                                         @endif
                                     </td>
