@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mail;
+use App\Models\Room;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -23,15 +24,22 @@ class MailController extends Controller
 
         return view('tenant.mail',['mails'=>$mails]);
     }
+    public function admin_index(){
+
+        $mails=Mail::where('id','>',"0")->get();
+        $rooms=Room::where('id','<>',"null")->get();
+        return view('admin.mails.index',['mails'=>$mails,'rooms'=>$rooms]);
+    }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $room=Room::where('id','=',$request->id)->get();
+        return view('admin.mails.create',['room'=>$room]);
     }
 
     /**
@@ -42,7 +50,20 @@ class MailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,	[
+            'room_id'	=>	'required|max:20',
+            'category'	=>	'required|max:3',
+            'ArrivalTime' => 'required|date',
+            'statu' => 'required|boolean',
+        ]);
+        Mail::create([
+            'room_id'=>$request['room_id'],
+            'category'=>$request['category'],
+            'ArrivalTime'=>$request['ArrivalTime'],
+            'statu'=>$request['statu'],
+
+        ]);
+        return redirect()->route('admin.mails.index');
     }
 
     /**
@@ -62,9 +83,11 @@ class MailController extends Controller
      * @param  \App\Models\Mail  $mail
      * @return \Illuminate\Http\Response
      */
-    public function edit(Mail $mail)
+    public function edit($id)
     {
-        //
+        $mails=Mail::find($id);
+
+        return view('admin.mails.edit',['mails'=>$mails]);
     }
 
     /**
@@ -74,9 +97,20 @@ class MailController extends Controller
      * @param  \App\Models\Mail  $mail
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Mail $mail)
+    public function update(Request $request, $id)
     {
-        //
+        $mail=Mail::find($id);
+        $this->validate($request,	[
+
+            'category' => 'required|max:11|',
+            'statu' => 'required|boolean',
+
+            'ArrivalTime'=>'required|date',
+
+
+        ]);
+        $mail->update($request->all());
+        return redirect()->route('admin.mails.index');
     }
 
     /**

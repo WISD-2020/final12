@@ -30,7 +30,7 @@
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         費用管理
                     </a>
-                    <a class="nav-link" href="index.html">
+                    <a class="nav-link" href="{{route('admin.mails.index')}}">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         信件管理
                     </a>
@@ -46,7 +46,7 @@
             </div>
         </nav>
     </div>
-    <div id="layoutSidenav_content">
+    <div id="layoutSidenav_content"style="margin-top: 25px">
         <main>
             <div class="container-fluid">
                 @yield('content')

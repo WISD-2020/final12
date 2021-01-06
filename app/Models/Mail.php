@@ -11,5 +11,12 @@ class Mail extends Model
     {
         return $this->belongsTo(Room::class);
     }
+    protected $fillable = [
+        'room_id',
+        'category',
+        'ArrivalTime',
+        'statu',
+        'collection_time',
+    ];
     use HasFactory;
 }

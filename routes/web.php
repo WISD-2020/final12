@@ -63,6 +63,21 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/', function () {
             return view('admin.index');
         })->name('admin.index');
+
+        /*信件管理*/
+        Route::get('/mails', [MailController::class, 'admin_index'])
+            ->name('admin.mails.index');
+        Route::post('/mail/create', [MailController::class, 'create'])
+            ->name('admin.mail.create');
+        Route::post('/mail/store', [MailController::class, 'store'])
+            ->name('admin.mail.store');
+        Route::get('/mail/{id}', [MailController::class, 'edit'])
+            ->name('admin.mail.edit');
+        Route::patch('/mail/{id}/update', [MailController::class, 'update'])
+            ->name('admin.mail.update');
+        Route::get('/mail/{id}}', [MailController::class, 'destroy'])
+            ->name('admin.mail.destroy');
+
         /*費用管理*/
         Route::get('/cost', [CostController::class, 'admin_index'])
             ->name('admin.cost.index');
@@ -76,6 +91,7 @@ Route::group(['middleware' => 'auth'], function () {
             ->name('admin.cost.update');
         Route::delete('cost/{id}', [CostController::class, 'destroy'])
             ->name('admin.cost.destroy');
+
         /*會員管理*/
         Route::get('/member', [UserController::class, 'index'])
             ->name('admin.member.index');
