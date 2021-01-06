@@ -119,8 +119,10 @@ class MailController extends Controller
      * @param  \App\Models\Mail  $mail
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Mail $mail)
+    public function destroy($id)
     {
-        //
+        $mail=Mail::find($id);
+        $mail->delete();
+        return redirect()->route('admin.mails.index');
     }
 }

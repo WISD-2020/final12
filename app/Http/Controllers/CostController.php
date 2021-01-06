@@ -20,7 +20,7 @@ class CostController extends Controller
       $costs=DB::table('costs')
           ->where('costs.room_id','=',auth()->user()->room_id)
           ->join('users','costs.room_id','=','users.room_id')
-          ->select('costs.room_id','waterbill','electricitybill','consumption','public_e',
+          ->select('costs.room_id','waterbill','consumption','public_e',
                            'rent','w_status','e_status','r_status','cost_month','name',)
           ->get();
 

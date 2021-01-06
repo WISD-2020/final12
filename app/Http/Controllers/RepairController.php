@@ -133,7 +133,7 @@ class RepairController extends Controller
     public function admin_destroy($id){
         $repair=Repair::find($id);
         $repair->delete();
-        return redirect()->route('admin.repair.index');
+        return redirect()->route('admin.repairs.index');
     }
     public function destroy($id)
     {

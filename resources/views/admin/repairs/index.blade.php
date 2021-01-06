@@ -62,7 +62,7 @@
                             </td>
                             <td>
                                 {{Carbon\Carbon::parse($repair->repair_date)->format('Y-m-d')}}
-                                
+
                             </td>
 
                             <td>
@@ -82,8 +82,8 @@
                             <!-- 刪除按鈕 -->
                             <td>
                                 <form action="{{route('admin.repair.destroy',$repair->id)}}" method="POST">
-                                    {{ csrf_field() }}
-                                    {{ method_field('DELETE') }}
+                                   @csrf
+                                   @method('DELETE')
 
                                     <button type="submit" class="btn btn-danger">刪除</button>
                                 </form>
