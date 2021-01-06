@@ -105,7 +105,16 @@ class RepairController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id){
-        
+
+        $repair=Repair::find($id);
+        $this->validate($request,	[
+
+            'room_id' => 'required|max:20',
+            'repair_content'=>'required|max:255',
+            'return_date'=>'required|date',
+        ]);
+        $repair->update($request->all());
+        return redirect()->route('repair.index');
 
 
     }
