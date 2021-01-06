@@ -54,12 +54,12 @@
                         <div class="form-group">
                             <label for="consumption">度數：</label>
                             <input type="number" id="consumption" name="consumption" class="form-control"
-                                   placeholder="輸入用電度數" value="">
+                                   placeholder="輸入用電度數" value=""required>
                         </div>
                         <div class="form-group">
                             <label for="public_e">公共電費：</label>
                             <input type="number" id="public_e" name="public_e" class="form-control"
-                                   placeholder="輸入公共電費" value="">
+                                   placeholder="輸入公共電費" value=""required>
                         </div>
                         <div class="form-group">
                             <label for="w_status">水費繳交：</label>

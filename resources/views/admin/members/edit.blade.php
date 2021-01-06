@@ -18,7 +18,6 @@
         <!-- /.row -->
 
 
-
         <div class="row">
             <div class="col-lg-12">
                 <form action="{{ route('admin.member.update', $user->id ) }}" method="POST" role="form" >
@@ -41,10 +40,10 @@
                         <label for="account">帳號：</label>
                         <input id="account" name="account" class="form-control" disabled="disabled" value="{{$user->account}}">
                     </div>
-                    <div class="form-group">
-                        <label for="contact_id">聯絡人編號：</label>
-                        <input type="number" id="contact_id" name="contact_id" class="form-control" placeholder="{{$user->contact_id}}" value="{{$user->contact_id}}">
-                    </div>
+{{--                    <div class="form-group">--}}
+{{--                        <label for="contact_id">聯絡人編號：</label>--}}
+{{--                        <input type="number" id="contact_id" name="contact_id" class="form-control" placeholder="{{$user->contact_id}}" value="{{$user->contact_id}}">--}}
+{{--                    </div>--}}
                     <div class="form-group">
                         <label for="phone">電話：</label>
                         <input type="number" id="phone" name="phone" class="form-control" placeholder="{{$user->phone}}" value="{{$user->phone}}">
