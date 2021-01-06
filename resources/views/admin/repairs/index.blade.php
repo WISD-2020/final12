@@ -55,7 +55,7 @@
                                 <div>{{ $repair->id }}</div>
                             </td>
                             <td>{{$repair->room_id}}</td>
-                            <td>{{$repair->repair_content}}</td>
+                            <td>{{$repair->content}}</td>
                             <td>
                                 {{$repair->raintenance_staff}}
 

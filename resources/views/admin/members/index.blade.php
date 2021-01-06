@@ -30,8 +30,8 @@
                                     <th>電子郵件</th>
                                     <th>電話</th>
                                     <th>身分證字號</th>
-                                    <th>聯絡人姓名</th>
-                                    <th>聯絡人電話</th>
+{{--                                    <th>聯絡人姓名</th>--}}
+{{--                                    <th>聯絡人電話</th>--}}
                                     <th>編輯</th>
                                     <th>刪除</th>
 
@@ -46,8 +46,8 @@
                                     <th>電子郵件</th>
                                     <th>電話</th>
                                     <th>身分證字號</th>
-                                    <th>聯絡人姓名</th>
-                                    <th>聯絡人電話</th>
+{{--                                    <th>聯絡人姓名</th>--}}
+{{--                                    <th>聯絡人電話</th>--}}
                                     <th>編輯</th>
                                     <th>刪除</th>
                                 </tr>
@@ -71,8 +71,8 @@
                                     <td>{{$user->email}}</td>
                                     <td>{{$user->phone}}</td>
                                     <td>{{$user->id_number}}</td>
-                                    <td>{{$user->contact_name}}</td>
-                                    <td>{{$user->contact_phone}}</td>
+{{--                                    <td>{{$user->contact_name}}</td>--}}
+{{--                                    <td>{{$user->contact_phone}}</td>--}}
 
 
 

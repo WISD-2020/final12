@@ -39,9 +39,9 @@
                                    value="{{$repairs->room_id}}" disabled="disabled" >
                         </div>
                         <div class="form-group">
-                            <label for="repair_content">報修內容：</label>
-                            <input id="repair_content" name="repair_content" class="form-control"
-                                   value="{{$repairs->repair_content}}"disabled="disabled">
+                            <label for="content">報修內容：</label>
+                            <input id="content" name="content" class="form-control"
+                                   value="{{$repairs->content}}"disabled="disabled">
                         </div>
                         <div class="form-group">
                             <label for="raintenance_staff">維修人員：</label>

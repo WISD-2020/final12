@@ -21,7 +21,6 @@ class CreateRepairsTable extends Migration
             $table->string('content',255);
             $table->integer('repair_fess')->nullable();
             $table->dateTime('return_date');
-            $table->dateTime('reply')->nullable();
             $table->dateTime('repair_date')->nullable();
         });
     }

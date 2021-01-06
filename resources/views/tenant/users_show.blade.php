@@ -38,8 +38,8 @@
                                     <td>{{$show->room_id }}</td>
                                     <td>{{$show->account}}</td>
                                     <td>
-                                        @if(($show->gender)==0)女生
-                                        @else男生
+                                        @if(($show->gender)==0)女
+                                        @else男
                                         @endif
                                     </td>
                                     <td>{{$show->email}}</td>

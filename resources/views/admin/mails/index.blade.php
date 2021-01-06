@@ -71,7 +71,7 @@
                             <td>{{$mail->room_id}}</td>
                             <td>{{Carbon\Carbon::parse($mail->ArrivalTime)->format('Y-m-d')}}</td>
                             <td>
-                                @if(($mail->collection_time)==null)尚未領取
+                                @if(($mail->collection_time)==null)
                                 @else{{Carbon\Carbon::parse($mail->collection_time)->format('Y-m-d')}}
                                 @endif
                             </td>
