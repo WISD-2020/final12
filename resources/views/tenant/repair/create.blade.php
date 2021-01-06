@@ -32,8 +32,8 @@
                                    value="{{auth()->user()->room_id}}" type="hidden" required>
                         </div>
                         <div class="form-group">
-                            <label for="repair_content">報修內容：</label>
-                            <input id="repair_content" type="text" name="repair_content" class="form-control"
+                            <label for="content">報修內容：</label>
+                            <input id="content" type="text" name="content" class="form-control"
                                    placeholder="請輸入內容"
                                    value="">
                         </div>
@@ -42,7 +42,7 @@
                             <label for="return_date">報修日期：</label>
                             <input id="return_date" type="date" name="return_date" class="form-control"
                                    placeholder="請選擇日期"
-                                   value="">
+                                   value="{{Carbon\Carbon::parse(Carbon\Carbon::now())->format('Y-m-d')}}">
                         </div>
 
                         <button type="submit" class="btn-sm btn-primary">送出</button>

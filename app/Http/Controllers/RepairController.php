@@ -17,10 +17,8 @@ class RepairController extends Controller
     {
 
         $repairs=DB::table('repairs')
-            ->where('repairs.room_id','=',auth()->user()->room_id)
-            ->join('users','repairs.room_id','=','users.room_id')
-            ->select('repairs.room_id','repair_content','return_date','repairs.id','repairs_statu','name',)
-            ->get();
+            ->where('repairs.room_id','=',auth()->user()->room_id)->get();
+
 
         return view('tenant.repair',['repairs'=>$repairs]);
     }
@@ -54,13 +52,13 @@ class RepairController extends Controller
     {
         $this->validate($request, [
             'room_id' => 'required|max:20',
-            'repair_content'=>'required|max:255',
+            'content'=>'required|max:255',
             'return_date'=>'required|date',
         ]);
 
         Repair::create([
             'room_id'=>$request->room_id,
-            'repair_content'=>$request->repair_content,
+            'content'=>$request->content,
             'return_date'=>$request->return_date,
         ]);
         return redirect()->route('repair.index');
@@ -110,11 +108,13 @@ class RepairController extends Controller
         $repair=Repair::find($id);
         $this->validate($request,	[
 
-            'room_id' => 'required|max:20',
-            'repair_content'=>'required|max:255',
+
+            'content'=>'max:255',
             'return_date'=>'required|date',
         ]);
         $repair->update($request->all());
+
+
         return redirect()->route('repair.index');
 
 

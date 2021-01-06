@@ -11,10 +11,7 @@
 
                 <h1 class="mt-4">會員管理</h1>
                     <a href="{{ route('admin.member.create') }}" class="btn btn-success">新增會員資料</a>
-{{--                <ol class="breadcrumb mb-4">--}}
-{{--                    <li class="breadcrumb-item active">Dashboard</li>--}}
-{{--                    <li class="breadcrumb-item active">Dashboard</li>--}}
-{{--                </ol>--}}
+
 
                 <div class="card mb-4">
                     <div class="card-header">

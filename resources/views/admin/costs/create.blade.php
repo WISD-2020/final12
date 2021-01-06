@@ -35,7 +35,7 @@
                             <label for="cost_month">費用月份：</label>
                             <input id="cost_month" type="date" name="cost_month" class="form-control"
                                    placeholder="請選擇日期"
-                                   value="">
+                                   value="{{Carbon\Carbon::parse(Carbon\Carbon::now())->format('Y-m-d')}}">
                         </div>
                         <div class="form-group">
                             <label for="waterbill">水費：</label>

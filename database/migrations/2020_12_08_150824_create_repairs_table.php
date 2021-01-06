@@ -18,7 +18,7 @@ class CreateRepairsTable extends Migration
             $table->timestamps();
             $table->string('room_id',20);
             $table->string('raintenance_staff',20)->nullable();
-            $table->string('repair_content',255);
+            $table->string('content',255);
             $table->integer('repair_fess')->nullable();
             $table->dateTime('return_date');
             $table->dateTime('reply')->nullable();

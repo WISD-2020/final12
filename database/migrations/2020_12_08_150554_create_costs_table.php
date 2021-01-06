@@ -17,7 +17,7 @@ class CreateCostsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('room_id',20);
-           /*$table->foreign('room_id')->references('id')->on('users');*/
+
             $table->integer('waterbill');
             $table->integer('consumption');
             $table->integer('public_e');

@@ -15,7 +15,7 @@ class CreateRoomsTable extends Migration
     {
         Schema::create('rooms', function (Blueprint $table) {
 
-            $table->string('id','20')->comment('G一般 L加大 I 單人 D雙人 例如:GI1004 一般單人套房一樓房號004');
+            $table->string('id','20');
             $table->string('room_type',20);
             $table->string('room_address',50);
             $table->integer('room_price');

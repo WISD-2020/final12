@@ -18,7 +18,7 @@
         <!-- /.row -->
 
 
-        @if($errors){{$errors}}@endif
+
         <div class="row">
             <div class="col-lg-12">
                 <form action="{{ route('admin.member.update', $user->id ) }}" method="POST" role="form" >

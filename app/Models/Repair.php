@@ -16,7 +16,7 @@ class Repair extends Model
     protected $fillable = [
         'room_id',
         'raintenance_staff',
-        'repair_content',
+        'content',
         'repair_fess',
         'repair_date',
         'return_date',

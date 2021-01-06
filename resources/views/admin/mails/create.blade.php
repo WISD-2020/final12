@@ -42,7 +42,7 @@
                         <div class="form-group">
                             <label for="ArrivalTime">抵達日期：</label>
                             <input type="date" id="ArrivalTime" name="ArrivalTime" class="form-control"
-                                   value="100" >
+                                   value="{{Carbon\Carbon::parse(Carbon\Carbon::now())->format('Y-m-d')}}" >
 
                         </div>
                         <div class="form-group">

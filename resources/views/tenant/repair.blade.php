@@ -4,9 +4,11 @@
 
 @section('content')
 
+
+    @if($errors){{$errors}}@endif
     <h1 class="mt-4">修繕回報</h1>
 
-    <a href="{{route('repair.create',auth()->user()->rooom_id)}}"class="btn btn-success">新增修繕單</a>
+    <a href="{{route('repair.create',auth()->user()->room_id)}}"class="btn btn-success">新增修繕單</a>
 
     <div class="card mb-4">
         <div class="card-header">
@@ -43,7 +45,7 @@
                             <td class="table-text">
                                 <div>{{ $repair->room_id }}</div>
                             </td>
-                            <td>{{$repair->repair_content}}</td>
+                            <td>{{$repair->content}}</td>
                             <td>{{Carbon\Carbon::parse($repair->return_date)->format('Y/m/d')}}</td>
                             <td>
                                 @if(($repair->repairs_statu==0))未修繕
@@ -53,8 +55,7 @@
 
                             <!-- 編輯按鈕 -->
                             <td>
-                                <a href="{{ route('repair.edit', $repair->id) }}"
-                                   class="btn btn-primary">編輯</a>
+                                <a href="{{ route('repair.edit', $repair->id) }}" class="btn btn-primary">編輯</a>
 
                             </td>
                             <!-- 刪除按鈕 -->
