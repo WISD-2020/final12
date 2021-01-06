@@ -23,19 +23,19 @@
                 <div class="nav">
 
                     <a class="nav-link" href="{{route('admin.member.index')}}">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <div class="sb-nav-link-icon"><i class="far fa-address-card"></i></div>
                         會員管理
                     </a>
                     <a class="nav-link" href="{{route('admin.cost.index')}}">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <div class="sb-nav-link-icon"><i class="fas fa-donate"></i></div>
                         費用管理
                     </a>
                     <a class="nav-link" href="{{route('admin.mails.index')}}">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <div class="sb-nav-link-icon"><i class="fas fa-mail-bulk"></i></div>
                         信件管理
                     </a>
                     <a class="nav-link" href="{{route('admin.repairs.index')}}">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <div class="sb-nav-link-icon"><i class="fas fa-tools"></i></div>
                         修繕回報管理
                     </a>
 
