@@ -22,7 +22,7 @@
             @if($errors){{$errors}}@endif
             <div class="row">
                 <div class="col-lg-12">
-                    <form action="{{ route('repair.update', $repairs->id ) }}" method="POST" role="form">
+                    <form action="{{route('repair.update',$repairs->id)}}" method="POST" role="form">
 
                         @csrf
                         @method('PATCH')

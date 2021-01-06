@@ -104,13 +104,13 @@ class RepairController extends Controller
      */
     public function update(Request $request, $id){
 
-
         $repair=Repair::find($id);
         $this->validate($request,	[
 
 
             'content'=>'max:255',
             'return_date'=>'required|date',
+
         ]);
         $repair->update($request->all());
 
