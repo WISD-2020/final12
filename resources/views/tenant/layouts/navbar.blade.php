@@ -8,7 +8,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item ">
-                    <a class="nav-link" href="#">費用說明</a>
+                    <a class="nav-link" href="{{route('costdes.index')}}">費用說明</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('room.index')}}">房型介紹</a>

@@ -32,7 +32,8 @@ Route::get('/', function () {
 })->name('home');
 /*房型說明*/
 Route::get('room', [RoomController::class, 'index'])->name('room.index');
-
+/*費用說明*/
+Route::get('costdes', [CostController::class, 'costdes'])->name('costdes.index');
 
 /*身分別判斷*/
 Route::get('home', [UserController::class, 'home'])->name('user.home');

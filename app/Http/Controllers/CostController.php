@@ -6,6 +6,7 @@ use App\Models\Cost;
 use App\Models\Room;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class CostController extends Controller
@@ -24,9 +25,17 @@ class CostController extends Controller
                            'rent','w_status','e_status','r_status','cost_month','name',)
           ->get();
 
-
         return view('tenant.cost',['costs'=>$costs]);
 
+    }
+
+    public function costdes(){
+        if (Auth::check()){
+            return view('tenant.costdes');
+        }
+        else{
+            return view('frontend.costdes');
+        }
     }
     public function admin_index()
     {
