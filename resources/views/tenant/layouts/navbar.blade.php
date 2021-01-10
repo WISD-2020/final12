@@ -7,6 +7,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item ">
+                    <a class="nav-link" href="#">嗨! {{auth()->user()->name}}</a>
+                </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="{{route('costdes.index')}}">費用說明</a>
                 </li>
@@ -28,6 +32,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('logout') }}">房客登出</a>
                 </li>
+                @if(auth()->user()->id_type==1)
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.index') }}">後台</a>
+                    </li>
+                @endif
             </ul>
         </div>
     </div>

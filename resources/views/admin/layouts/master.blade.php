@@ -39,6 +39,10 @@
                         修繕回報管理
                     </a>
 
+                    <a class="nav-link" href="/tenant">
+                        <div class="sb-nav-link-icon"><i class="fas fa-random"></i></div>
+                        前台
+                    </a>
                 </div>
             </div>
             <div class="sb-sidenav-footer">

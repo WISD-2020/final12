@@ -5,7 +5,7 @@
 @section('content')
 
 
-    @if($errors){{$errors}}@endif
+
     <h1 class="mt-4">修繕回報</h1>
 
     <a href="{{route('repair.create',auth()->user()->room_id)}}"class="btn btn-success">新增修繕單</a>

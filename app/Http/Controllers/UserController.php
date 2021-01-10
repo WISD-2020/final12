@@ -183,6 +183,14 @@ class UserController extends Controller
         }
 
     }
+    public function member(){
+
+        return redirect('tenant');
+    }
+    public function admin(){
+
+        return redirect('admin');
+    }
 
 
 

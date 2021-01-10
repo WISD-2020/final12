@@ -122,6 +122,7 @@ Route::group(['middleware' => 'auth'], function () {
             ->name('admin.member.update');
         Route::delete('/member/{id}', [UserController::class, 'destroy'])
             ->name('admin.member.destroy');
+
     });
 });
 
